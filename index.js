@@ -4,6 +4,12 @@ const app = express();
 
 app.use(express.json());
 
+// Get URL from shortened URL ID
+
+// Create a Shrotened URL
+
+// Check stats  from shrotened URl ID
+
 app.get('/ping', (req, res) => {
     console.log('got a /ping request');
     res.json({
