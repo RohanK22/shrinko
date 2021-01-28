@@ -2,13 +2,44 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Shrinko</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <h1>Hello There</h1>
-        <script src="./index.js"></script>
+        <h1>Shrinko: A minimalistic URL shortener</h1>
+        <br>
+        <div id = "form">
+            <label for="url">Enter URL to shorten:   https://</label>
+            <input type="url" id="url" name="url"><br><br>
+            <button type="button" onclick="shortenURL()">Shorten</button>
+            
+        </div>
+        <div id="info"></div>
+
+        <script>
+            
+                baseUrl = "http://localhost:9000";
+                async function shortenURL() {
+                    const url = document.getElementById('url').value;
+                    if (url != '' && url != null) {
+                        const APICallUrl = baseUrl + '/short/' + url;
+                        console.log(APICallUrl);
+                        const response = await fetch(APICallUrl, {
+                            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                        });
+                        const jsonRes = await response.json();
+                        const info = document.getElementById('info');
+                        if(jsonRes.id)
+                            info.innerHTML = "Your shortened URL is: " + baseUrl + '/' + jsonRes.id;
+                        else 
+                            info.innerHTML = jsonRes;
+                    }
+                }
+        </script>
     </body>
 </html>
