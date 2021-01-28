@@ -23,6 +23,7 @@
   "homepage": "https://github.com/RohanK22/shrinko#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "firebase": "^8.2.4",
     "nodemon": "^2.0.7"
   }
 }
