@@ -31,7 +31,7 @@ app.get('/:id', (req, res, next) => {
                 const data = snapshot.val();
                 console.log(data.url);
                 if (data.url != null) {
-                    res.status(301).redirect( data.url);
+                    res.status(301).redirect(data.url);
                 } else {
                     res.json({
                         message: 'URL not found'
@@ -46,7 +46,7 @@ app.get('/:id', (req, res, next) => {
 });
 
 // Create a Shrotened URL
-app.post('/short/:url', (req, res, next) => {
+app.post('/short/', (req, res, next) => {
     const url = req.params.url;
     if (url) {
         var suid = require('rand-token').suid;

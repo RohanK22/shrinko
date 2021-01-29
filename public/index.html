@@ -22,13 +22,13 @@
                 async function shortenURL() {
                     const url = document.getElementById('url').value;
                     if (url != '' && url != null) {
-                        const APICallUrl = baseUrl + '/short/' + url;
+                        const APICallUrl = baseUrl + '/short/';
                         console.log(APICallUrl);
                         const reqBody = {
                             url: url
-                        }
+                        };
                         const response = await fetch(APICallUrl, {
-                            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                            method: 'POST', 
                             headers: {
                                 'Content-Type': 'application/json'
                             },
