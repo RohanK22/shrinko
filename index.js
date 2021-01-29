@@ -22,7 +22,7 @@ app.use(express.json());
 
 // Get URL from shortened URL ID
 app.get('/:id', (req, res, next) => {
-    let userId = req.body.id;
+    let userId = req.params.id;
     if (userId) {
         database
             .ref('/urls/' + userId)
@@ -47,7 +47,7 @@ app.get('/:id', (req, res, next) => {
 
 // Create a Shrotened URL
 app.post('/short/', (req, res, next) => {
-    const url = req.params.url;
+    const url = req.body.url;
     if (url) {
         var suid = require('rand-token').suid;
         const id = suid(16);
