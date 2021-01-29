@@ -37,9 +37,9 @@
                         const jsonRes = await response.json();
                         const info = document.getElementById('info');
                         if(jsonRes.id)
-                            info.innerHTML = "Your shortened URL is: " + baseUrl + '/' + jsonRes.id;
+                            info.value = "Your shortened URL is: " + baseUrl + '/' + jsonRes.id;
                         else 
-                            info.innerHTML = jsonRes;
+                            info.url= jsonRes;
                     }
                 }
         </script>
