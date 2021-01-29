@@ -36,8 +36,12 @@
                         });
                         const jsonRes = await response.json();
                         const info = document.getElementById('info');
-                        if(jsonRes.id)
-                            info.textContent = "Your shortened URL is: " + baseUrl + '/' + jsonRes.id;
+                        if(jsonRes.id){
+                            info.textContent = "Your shortened URL is: ";
+                            let ahref = document.createElement("a");
+                            ahref.text = baseUrl + '/' + jsonRes.id;
+                            info.appendChild(ahref);
+                        }
                         else 
                             info.textContent= jsonRes.message;
                     }
