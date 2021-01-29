@@ -22,6 +22,9 @@
                 async function shortenURL() {
                     const url = document.getElementById('url').value;
                     if (url != '' && url != null) {
+                        if(!url.startsWith("https://")) {
+                            url = "https://" + url;
+                        }
                         const APICallUrl = baseUrl + '/short/';
                         console.log(APICallUrl);
                         const reqBody = {
