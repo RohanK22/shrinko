@@ -20,7 +20,7 @@
         <script>
                 baseUrl = "https://shrinko-url.herokuapp.com";
                 async function shortenURL() {
-                    const url = document.getElementById('url').value;
+                    let url = document.getElementById('url').value;
                     if (url != '' && url != null) {
                         if(!url.startsWith("https://")) {
                             url = "https://" + url;
