@@ -22,7 +22,7 @@ app.use(express.json());
 
 // Get URL from shortened URL ID
 app.get('/:id', (req, res, next) => {
-    let userId = req.params.id;
+    let userId = req.body.id;
     if (userId) {
         database
             .ref('/urls/' + userId)
@@ -31,7 +31,7 @@ app.get('/:id', (req, res, next) => {
                 const data = snapshot.val();
                 console.log(data.url);
                 if (data.url != null) {
-                    res.status(301).redirect('https://' + data.url);
+                    res.status(301).redirect( data.url);
                 } else {
                     res.json({
                         message: 'URL not found'
