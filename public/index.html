@@ -40,6 +40,8 @@
                             info.textContent = "Your shortened URL is: ";
                             let ahref = document.createElement("a");
                             ahref.textContent = baseUrl + '/' + jsonRes.id;
+                            ahref.setAttribute('href', baseUrl + '/' + jsonRes.id);
+                            ahref.innerText = baseUrl + '/' + jsonRes.id;
                             info.appendChild(ahref);
                         }
                         else 
